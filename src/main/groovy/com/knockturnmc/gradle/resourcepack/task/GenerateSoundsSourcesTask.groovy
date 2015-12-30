@@ -15,11 +15,11 @@ class GenerateSoundsSourcesTask extends DefaultTask {
     File soundsJson
     File outputDir
 
-    Gson GSON = new Gson();
+    Gson GSON = new Gson()
 
     @TaskAction
     void doTask() throws IOException {
-        Map<String, SoundModel> soundModels = GSON.fromJson(new FileReader(this.soundsJson), Map.class);
+        Map<String, SoundModel> soundModels = GSON.fromJson(new FileReader(this.soundsJson), Map.class)
 
         TypeSpec.Builder customSoundsBuilder = TypeSpec.enumBuilder("CustomSound")
                 .addModifiers(Modifier.PUBLIC)
@@ -32,16 +32,16 @@ class GenerateSoundsSourcesTask extends DefaultTask {
                         .returns(String.class)
                         .addModifiers(Modifier.PUBLIC)
                         .addStatement('return $N', "this.resourceName")
-                        .build());
+                        .build())
 
         for (String name : soundModels.keySet()) {
             customSoundsBuilder.addEnumConstant(name.replace("custom.", "").toUpperCase(),
-                    TypeSpec.anonymousClassBuilder('$S', name).build());
+                    TypeSpec.anonymousClassBuilder('$S', name).build())
         }
 
-        TypeSpec customSounds = customSoundsBuilder.build();
+        TypeSpec customSounds = customSoundsBuilder.build()
 
-        JavaFile javaFile = JavaFile.builder("com.knockturn.resourcepack", customSounds).build();
-        javaFile.writeTo(this.outputDir);
+        JavaFile javaFile = JavaFile.builder("com.knockturn.resourcepack", customSounds).build()
+        javaFile.writeTo(this.outputDir)
     }
 }
