@@ -2,6 +2,7 @@ plugins {
     id 'groovy'
 
     id 'maven'
+    id 'com.gradle.plugin-publish' version '0.9.1'
 
     id 'eclipse'
     id 'idea'
@@ -11,7 +12,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 group = 'com.knockturnmc.gradle'
-version = '1.0-SNAPSHOT'
+version = '1.0'
+description = 'ResourcePackGradle is a Gradle plugin to generate CustomSounds.java.'
 
 repositories {
     mavenLocal()
@@ -24,6 +26,20 @@ dependencies {
 
     compile 'com.squareup:javapoet:1.4.0'
     compile 'com.google.code.gson:gson:2.2.4'
+}
+
+pluginBundle {
+    website = 'http://knockturnmc.com/'
+    vcsUrl = 'http://git.knockturnmc.com/knockturn/resourcepack-gradle'
+    description = project.description
+    tags = ['knockturnmc']
+
+    plugins {
+        resourcePackPlugin {
+            id = 'com.knockturnmc.gradle.resourcepack'
+            displayName = 'resourcepackgradle'
+        }
+    }
 }
 
 task wrapper(type: Wrapper) {
