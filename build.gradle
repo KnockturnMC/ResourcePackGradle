@@ -23,6 +23,7 @@ dependencies {
     compile localGroovy()
 
     compile 'com.squareup:javapoet:1.4.0'
+    compile 'com.google.code.gson:gson:2.2.4'
 }
 
 task wrapper(type: Wrapper) {
