@@ -17,6 +17,7 @@ class ResourcePackPlugin implements Plugin<Project> {
                 tasks.generateSoundsSources.with {
                     soundsJson = extension.soundsJson
                     outputDir = extension.outputDir
+                    packageName = extension.packageName
                 }
             }
         }

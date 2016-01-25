@@ -5,4 +5,6 @@ class ResourcePackExtension {
     File soundsJson
 
     File outputDir
+
+    String packageName
 }

@@ -14,6 +14,7 @@ class GenerateSoundsSourcesTask extends DefaultTask {
 
     File soundsJson
     File outputDir
+    String packageName
 
     Gson GSON = new Gson()
 
@@ -41,7 +42,7 @@ class GenerateSoundsSourcesTask extends DefaultTask {
 
         TypeSpec customSounds = customSoundsBuilder.build()
 
-        JavaFile javaFile = JavaFile.builder("com.knockturnmc.resourcepack", customSounds)
+        JavaFile javaFile = JavaFile.builder(this.packageName, customSounds)
                 .skipJavaLangImports(true)
                 .build()
         javaFile.writeTo(this.outputDir)
