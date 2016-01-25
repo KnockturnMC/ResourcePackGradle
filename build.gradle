@@ -14,7 +14,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 group = 'com.knockturnmc.gradle'
-version = '1.2'
+version = '1.0.4'
 description = 'ResourcePackGradle is a Gradle plugin to generate CustomSounds.java.'
 
 repositories {
@@ -32,7 +32,7 @@ dependencies {
 
 pluginBundle {
     website = 'http://knockturnmc.com/'
-    vcsUrl = 'http://git.knockturnmc.com/knockturn/resourcepack-gradle'
+    vcsUrl = 'https://github.com/KnockturnMC/ResourcePackGradle'
     description = project.description
     tags = ['knockturnmc']
 
