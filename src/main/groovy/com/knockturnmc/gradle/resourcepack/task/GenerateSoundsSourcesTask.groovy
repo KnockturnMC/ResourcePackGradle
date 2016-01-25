@@ -41,7 +41,9 @@ class GenerateSoundsSourcesTask extends DefaultTask {
 
         TypeSpec customSounds = customSoundsBuilder.build()
 
-        JavaFile javaFile = JavaFile.builder("com.knockturnmc.resourcepack", customSounds).build()
+        JavaFile javaFile = JavaFile.builder("com.knockturnmc.resourcepack", customSounds)
+                .skipJavaLangImports(true)
+                .build()
         javaFile.writeTo(this.outputDir)
     }
 }
