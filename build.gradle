@@ -4,8 +4,10 @@ plugins {
     id 'maven'
     id 'com.gradle.plugin-publish' version '0.9.1'
 
-    id 'eclipse'
     id 'idea'
+    id 'eclipse'
+
+    id 'com.github.hierynomus.license' version '0.11.0'
 }
 
 sourceCompatibility = 1.8
@@ -39,6 +41,17 @@ pluginBundle {
             id = 'com.knockturnmc.gradle.resourcepack'
             displayName = 'resourcepackgradle'
         }
+    }
+}
+
+license {
+    header file('HEADER.txt')
+    include '**/*.java'
+    include '**/*.groovy'
+
+    strictCheck true
+    mapping {
+        java = 'SLASHSTAR_STYLE'
     }
 }
 
