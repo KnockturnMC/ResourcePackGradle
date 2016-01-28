@@ -67,6 +67,7 @@ class GenerateSoundsSourcesTask extends DefaultTask {
 
         JavaFile javaFile = JavaFile.builder(this.packageName, customSounds)
                 .skipJavaLangImports(true)
+                .indent("    ")
                 .build()
         javaFile.writeTo(this.outputDir)
     }
